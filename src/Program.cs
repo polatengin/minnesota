@@ -1,1 +1,2 @@
-﻿Console.WriteLine("Hello, World!");
+using Azure;
+using Azure.Search.Documents;
