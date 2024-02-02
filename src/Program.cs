@@ -1,4 +1,4 @@
-var endpointEnvironmentVariable = Environment.GetEnvironmentVariable("SEARCH_ENDPOINT") ?? "";
+﻿var endpointEnvironmentVariable = Environment.GetEnvironmentVariable("SEARCH_ENDPOINT") ?? "";
 var adminKeyEnvironmentVariable = Environment.GetEnvironmentVariable("SEARCH_ADMIN_KEY") ?? "";
 
 var indexName = "demo_index";
@@ -47,3 +47,9 @@ if (index == null)
 }
 
 var client = new SearchClient(new Uri(endpointEnvironmentVariable), indexName, credential);
+
+SearchResults<SearchDocument> response = client.Search<SearchDocument>("facelift");
+foreach (var result in response.GetResults().Select(e => e.Document))
+{
+  Console.WriteLine($"{result.GetString("title")}");
+}
