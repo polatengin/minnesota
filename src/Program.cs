@@ -41,6 +41,8 @@ if (index == null)
     }
   };
 
+  index.Suggesters.Add(new SearchSuggester("sg", new List<string> { "title" }));
+
   await indexClient.CreateIndexAsync(index);
 }
 
