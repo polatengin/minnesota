@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -9,6 +9,16 @@
 
   <ItemGroup>
     <PackageReference Include="Azure.Search.Documents" Version="11.5.1" />
+
+    <Using Include="System" />
+    <Using Include="System.Linq" />
+    <Using Include="System.Collections.Generic" />
+    <Using Include="System.Threading.Tasks" />
+    <Using Include="Azure" />
+    <Using Include="Azure.Search.Documents" />
+    <Using Include="Azure.Search.Documents.Indexes" />
+    <Using Include="Azure.Search.Documents.Indexes.Models" />
+    <Using Include="Azure.Search.Documents.Models" />
   </ItemGroup>
 
 </Project>
