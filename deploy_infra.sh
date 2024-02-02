@@ -9,3 +9,4 @@ else
 fi
 
 az group create --name "${PROJECT_PREFIX}-rg" --location "${LOCATION}"
+az search service create --name "${PROJECT_PREFIX}-search" --resource-group "${PROJECT_PREFIX}-rg" --sku "free" --location "${LOCATION}"
