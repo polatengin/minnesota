@@ -11,5 +11,5 @@ fi
 az group create --name "${PROJECT_PREFIX}-rg" --location "${LOCATION}"
 az search service create --resource-group "${PROJECT_PREFIX}-rg" --name "${PROJECT_PREFIX}-search" --location "${LOCATION}" --sku "basic" --semantic-search "standard"
 
-export SEARCH_ENDPOINT=$(az search service show --name "${PROJECT_PREFIX}-search" --resource-group "${PROJECT_PREFIX}-rg" --query "endpoint" -o "tsv")
+export SEARCH_ENDPOINT="https://${PROJECT_PREFIX}-search.search.windows.net"
 export SEARCH_ADMIN_KEY=$(az search admin-key show --resource-group "${PROJECT_PREFIX}-rg" --service-name "${PROJECT_PREFIX}-search" --query "primaryKey" -o "tsv")
