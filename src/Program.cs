@@ -9,11 +9,11 @@ var client = new SearchClient(new Uri(endpointEnvironmentVariable), indexName, c
 
 var indexClient = new SearchIndexClient(new Uri(endpointEnvironmentVariable), credential);
 
-var index = (await indexClient.GetIndexAsync(indexName)).Value;
+var indexes = indexClient.GetIndexNames().Where(e => e == indexName).ToList();
 
-if (index == null)
+if (indexes.Count == 0 || indexes.Exists(e => e != indexName))
 {
-  index = new SearchIndex(indexName)
+  var index = new SearchIndex(indexName)
   {
     Fields =
     {
