@@ -70,6 +70,11 @@ do {
   {
     break;
   }
+
+  SearchResults<SearchDocument> response = client.Search<SearchDocument>(search + "*", new SearchOptions { IncludeTotalCount = true, SearchMode = SearchMode.All, QueryType = SearchQueryType.Full });
+
+  var totalCount = response.TotalCount;
+
 } while (true);
 
 public class ContentItem
