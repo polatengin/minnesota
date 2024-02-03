@@ -61,6 +61,8 @@ if (indexes.Count == 0 || indexes.Exists(e => e != indexName))
 }
 
 do {
+  Console.Write("Search for documents (type '' to exit): ");
+
   var search = Console.ReadLine() ?? string.Empty;
 
   if (search == "")
