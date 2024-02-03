@@ -4,6 +4,9 @@ var adminKeyEnvironmentVariable = Environment.GetEnvironmentVariable("SEARCH_ADM
 var indexName = $"demo-index-{Random.Shared.Next(0, 1000)}";
 
 var credential = new AzureKeyCredential(adminKeyEnvironmentVariable);
+
+var client = new SearchClient(new Uri(endpointEnvironmentVariable), indexName, credential);
+
 var indexClient = new SearchIndexClient(new Uri(endpointEnvironmentVariable), credential);
 
 var index = (await indexClient.GetIndexAsync(indexName)).Value;
