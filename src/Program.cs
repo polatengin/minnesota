@@ -1,7 +1,7 @@
-﻿var endpointEnvironmentVariable = Environment.GetEnvironmentVariable("SEARCH_ENDPOINT") ?? "";
+var endpointEnvironmentVariable = Environment.GetEnvironmentVariable("SEARCH_ENDPOINT") ?? "";
 var adminKeyEnvironmentVariable = Environment.GetEnvironmentVariable("SEARCH_ADMIN_KEY") ?? "";
 
-var indexName = "demo_index";
+var indexName = $"demo-index-{Random.Shared.Next(0, 1000)}";
 
 var credential = new AzureKeyCredential(adminKeyEnvironmentVariable);
 var indexClient = new SearchIndexClient(new Uri(endpointEnvironmentVariable), credential);
