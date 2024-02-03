@@ -77,6 +77,11 @@ do {
 
   Console.SetCursorPosition(search.Length + 40, Console.CursorTop - 1);
   Console.WriteLine($" (Total count: {totalCount})");
+
+  foreach (var result in response.GetResults().Select(e => e.Document))
+  {
+    Console.WriteLine($"* {result.GetString("title")}");
+  }
 } while (true);
 
 public class ContentItem
