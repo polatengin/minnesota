@@ -37,8 +37,21 @@ The [deploy_infra.sh](./deploy_infra.sh) script will create a new **Resource Gro
 > export SEARCH_ADMIN_KEY=$(az search admin-key show --resource-group "${PROJECT_PREFIX}-rg" --service-name "${PROJECT_PREFIX}-search" --query "primaryKey" -o "tsv")
 > ```
 
+## Second: Populating the Index
+
+After creating the **Azure Search Service**, you can run the following command to populate the index with some sample data ([./src/data.json](./src/data.json)).
+
+```bash
+cd src
+dotnet run
+```
+
+The [Program.cs](./src/Program.cs) file contains the code to create the index and populate it with some sample data ([./src/data.json](./src/data.json)).
 
 ![image](https://github.com/polatengin/minnesota/assets/118744/c4b9817a-60c5-42c0-b6c1-a4bb61f9a523)
+
+After Search Index is created and populated with sample data, [Program.cs](./src/Program.cs) is going in a loop to ask for a search query, run the query and display the results.
+
 
 ![image](https://github.com/polatengin/minnesota/assets/118744/5f2606af-c20c-4cea-bccb-301e29f1dd29)
 
