@@ -47,12 +47,16 @@ if (indexes.Count == 0 || indexes.Exists(e => e != indexName))
   index.Suggesters.Add(new SearchSuggester("sg", new List<string> { "title" }));
 
   await indexClient.CreateIndexAsync(index);
+
+  var jsonContent = File.ReadAllText("data.json");
+
+  var contentList = JsonSerializer.Deserialize<List<ContentItem>>(jsonContent) ?? new List<ContentItem>();
+
+  Console.WriteLine($"Uploading {contentList.Count} documents to the {indexName}...");
+
+  foreach (var item in contentList)
+  {
+    await client.IndexDocumentsAsync(IndexDocumentsBatch.Upload(new[] { item }));
+  }
 }
-
-var client = new SearchClient(new Uri(endpointEnvironmentVariable), indexName, credential);
-
-SearchResults<SearchDocument> response = client.Search<SearchDocument>("facelift");
-foreach (var result in response.GetResults().Select(e => e.Document))
-{
-  Console.WriteLine($"{result.GetString("title")}");
 }
