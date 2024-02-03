@@ -1,4 +1,13 @@
-https://learn.microsoft.com/en-us/azure/search/query-simple-syntax
+# minnesota
+
+Sample project to demonstrate how to use **Azure Search Service** with **.NET Core**.
+
+Using wildcards in **Azure Search** queries is a common requirement. But it's not as _straightforward_ as it seems.
+
+I created this project to demonstrate a few options to use wildcards in **Azure Search** queries.
+
+> _Spoiler alert: None of them works as expected 😢_
+
 
 ![image](https://github.com/polatengin/minnesota/assets/118744/c4b9817a-60c5-42c0-b6c1-a4bb61f9a523)
 
