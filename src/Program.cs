@@ -61,6 +61,7 @@ if (indexes.Count == 0 || indexes.Exists(e => e != indexName))
 }
 
 do {
+  Console.ForegroundColor = ConsoleColor.Blue;
   Console.Write("Search for documents (type '' to exit): ");
 
   var search = Console.ReadLine() ?? string.Empty;
