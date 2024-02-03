@@ -59,6 +59,16 @@ if (indexes.Count == 0 || indexes.Exists(e => e != indexName))
     await client.IndexDocumentsAsync(IndexDocumentsBatch.Upload(new[] { item }));
   }
 }
+
+do {
+  var search = Console.ReadLine() ?? string.Empty;
+
+  if (search == "")
+  {
+    break;
+  }
+} while (true);
+
 public class ContentItem
 {
   public string Id { get; set; } = string.Empty;
