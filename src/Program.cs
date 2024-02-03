@@ -1,4 +1,4 @@
-var endpointEnvironmentVariable = Environment.GetEnvironmentVariable("SEARCH_ENDPOINT") ?? "";
+﻿var endpointEnvironmentVariable = Environment.GetEnvironmentVariable("SEARCH_ENDPOINT") ?? "";
 var adminKeyEnvironmentVariable = Environment.GetEnvironmentVariable("SEARCH_ADMIN_KEY") ?? "";
 
 var indexName = $"demo-index-{Random.Shared.Next(0, 1000)}";
@@ -80,6 +80,7 @@ do {
 
   foreach (var result in response.GetResults().Select(e => e.Document))
   {
+    Console.ForegroundColor = ConsoleColor.Green;
     Console.WriteLine($"* {result.GetString("title")}");
   }
 } while (true);
