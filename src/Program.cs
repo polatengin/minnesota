@@ -75,6 +75,8 @@ do {
 
   var totalCount = response.TotalCount;
 
+  Console.SetCursorPosition(search.Length + 40, Console.CursorTop - 1);
+  Console.WriteLine($" (Total count: {totalCount})");
 } while (true);
 
 public class ContentItem
