@@ -8,6 +8,35 @@ I created this project to demonstrate a few options to use wildcards in **Azure 
 
 > _Spoiler alert: None of them works as expected 😢_
 
+## First: Deploying Azure Search Service
+
+After loggin in to **Azure CLI**, run the following command to create a new **Azure Search Service**.
+
+```bash
+cd src
+source ../deploy_infra.sh
+```
+
+The [deploy_infra.sh](./deploy_infra.sh) script will create a new **Resource Group** and an **Azure Search Service** instance. It will also set the `SEARCH_ENDPOINT` and `SEARCH_ADMIN_KEY` environment variables.
+
+> ```bash
+> PROJECT_PREFIX=$(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 6 | head -n 1)
+> LOCATION="westus"
+> 
+> if [ -f .minnesota.json ]; then
+>   PROJECT_PREFIX=$(jq -r '.project_prefix' .minnesota.json)
+>   LOCATION=$(jq -r '.location' .minnesota.json)
+> else
+>   echo "{\"project_prefix\": \"$PROJECT_PREFIX\", \"location\": \"$LOCATION\"}" > .minnesota.json
+> fi
+> 
+> az group create --name "${PROJECT_PREFIX}-rg" --location "${LOCATION}"
+> az search service create --resource-group "${PROJECT_PREFIX}-rg" --name "${PROJECT_PREFIX}-search" --location "${LOCATION}" --sku "basic" --semantic-search "standard"
+> 
+> export SEARCH_ENDPOINT="https://${PROJECT_PREFIX}-search.search.windows.net"
+> export SEARCH_ADMIN_KEY=$(az search admin-key show --resource-group "${PROJECT_PREFIX}-rg" --service-name "${PROJECT_PREFIX}-search" --query "primaryKey" -o "tsv")
+> ```
+
 
 ![image](https://github.com/polatengin/minnesota/assets/118744/c4b9817a-60c5-42c0-b6c1-a4bb61f9a523)
 
