@@ -59,4 +59,16 @@ if (indexes.Count == 0 || indexes.Exists(e => e != indexName))
     await client.IndexDocumentsAsync(IndexDocumentsBatch.Upload(new[] { item }));
   }
 }
+public class ContentItem
+{
+  public string Id { get; set; } = string.Empty;
+  public string CoverFileName { get; set; } = string.Empty;
+  public string CoverFilePath { get; set; } = string.Empty;
+  public string Title { get; set; } = string.Empty;
+  public string Alias { get; set; } = string.Empty;
+  public int DisplayOrder { get; set; }
+  public bool Status { get; set; }
+  public bool IsShowInPage { get; set; }
+  public string ContentCategoryTypeName { get; set; } = string.Empty;
+  public string Language { get; set; } = string.Empty;
 }
