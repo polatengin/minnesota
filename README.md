@@ -52,12 +52,21 @@ The [Program.cs](./src/Program.cs) file contains the code to create the index an
 
 After Search Index is created and populated with sample data, [Program.cs](./src/Program.cs) is going in a loop to ask for a search query, run the query and display the results.
 
+## Third: Running the Queries
+
+First query is `medical` and it returns `0` results.
 
 ![image](https://github.com/polatengin/minnesota/assets/118744/5f2606af-c20c-4cea-bccb-301e29f1dd29)
 
+Second query is `medi` and it returns `11` results.
+
 ![image](https://github.com/polatengin/minnesota/assets/118744/ed4b30fa-590b-41a7-b4e4-6082770120be)
 
+Third query is `medic` and it returns `11` results.
+
 ![image](https://github.com/polatengin/minnesota/assets/118744/4ba6e6a9-5e36-4ae8-ab93-43aca700395e)
+
+Fourth query is `medica` and it returns `0` results.
 
 ![image](https://github.com/polatengin/minnesota/assets/118744/d2019e2a-5bf6-486c-860b-a9f52989945b)
 
