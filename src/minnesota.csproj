@@ -8,18 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Azure.Search.Documents" Version="11.5.1" />
+    <PackageReference Include="Elastic.Clients.Elasticsearch" Version="8.12.0" />
 
     <Using Include="System" />
     <Using Include="System.Linq" />
     <Using Include="System.Collections.Generic" />
     <Using Include="System.Threading.Tasks" />
     <Using Include="System.Text.Json" />
-    <Using Include="Azure" />
-    <Using Include="Azure.Search.Documents" />
-    <Using Include="Azure.Search.Documents.Indexes" />
-    <Using Include="Azure.Search.Documents.Indexes.Models" />
-    <Using Include="Azure.Search.Documents.Models" />
+    <Using Include="Elastic.Clients.Elasticsearch" />
+    <Using Include="Elastic.Transport" />
+
   </ItemGroup>
 
 </Project>
